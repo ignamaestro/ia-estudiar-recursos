@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IA para estudiar · Banco de recursos</title>
+<meta name="description" content="Herramientas, retos y prompts del taller práctico «IA para estudiar, organizarse y aprender» · Universidad CEU Cardenal Herrera, 27 de octubre de 2026.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Domine:wght@500;700&family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F7F5F0; --surface:#FFFFFF; --sand:#ECE8DF; --ink:#1F2A44; --muted:#4F5A72; --line:#DDD6C8;
+  --accent:#B5651D; --accent-soft:#F5E3D1; --ms:#2F6DB5; --ms-soft:#E3ECF7; --gg:#C2410C; --gg-soft:#FBE7DA; --ot:#6B7280; --ot-soft:#ECEDF0;
+  --hero:#1F2A44; --hero-ink:#F7F5F0; --hero-muted:#C9D3E6; --orange:#E08A3C; --code:#F3EFE6;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#12182A; --surface:#1A2236; --sand:#212A40; --ink:#ECEEF3; --muted:#AEB6C8; --line:#2E3850;
+    --accent:#F0A35E; --accent-soft:#3A2C22; --ms:#7FB0EE; --ms-soft:#1E2E48; --gg:#F59E6B; --gg-soft:#3A2820; --ot:#B4BAC6; --ot-soft:#262D3F;
+    --hero:#0C1120; --hero-ink:#F2F0EA; --hero-muted:#AEB9D0; --code:#232C43;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#12182A; --surface:#1A2236; --sand:#212A40; --ink:#ECEEF3; --muted:#AEB6C8; --line:#2E3850;
+  --accent:#F0A35E; --accent-soft:#3A2C22; --ms:#7FB0EE; --ms-soft:#1E2E48; --gg:#F59E6B; --gg-soft:#3A2820; --ot:#B4BAC6; --ot-soft:#262D3F;
+  --hero:#0C1120; --hero-ink:#F2F0EA; --hero-muted:#AEB9D0; --code:#232C43;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{font-family:'Nunito Sans',system-ui,-apple-system,'Segoe UI',sans-serif;background:var(--bg);color:var(--ink);line-height:1.55;font-size:17px}
+a{color:inherit}
+h1,h2,h3{font-family:'Domine',Georgia,serif;line-height:1.2}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+/* nav */
+nav.top{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav.top .wrap{display:flex;gap:6px;align-items:center;overflow-x:auto;padding-top:10px;padding-bottom:10px;scrollbar-width:none}
+nav.top a{flex:none;text-decoration:none;font-weight:700;font-size:14px;padding:7px 12px;border-radius:999px;color:var(--muted)}
+nav.top a:hover,nav.top a:focus-visible{background:var(--sand);color:var(--ink)}
+nav.top .brand{color:var(--accent);font-weight:800;margin-right:6px}
+/* hero */
+header.hero{background:var(--hero);color:var(--hero-ink);position:relative;overflow:hidden}
+header.hero:before{content:"";position:absolute;left:0;top:0;bottom:0;width:10px;background:var(--orange)}
+header.hero .wrap{padding-top:56px;padding-bottom:48px}
+.eyebrow{font-size:13px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+header.hero .eyebrow{color:var(--orange)}
+header.hero h1{font-size:clamp(32px,6vw,52px);margin:12px 0 14px}
+header.hero p{color:var(--hero-muted);font-size:19px;max-width:680px}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.chips span{border:1px solid #ffffff33;border-radius:999px;padding:6px 14px;font-size:14px;font-weight:700;color:var(--hero-ink)}
+/* flow */
+.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:-28px 0 0;position:relative}
+.flow a{display:block;text-decoration:none;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 18px;box-shadow:0 6px 20px #1f2a4414}
+.flow b{display:block;font-family:'Domine',serif;font-size:22px;color:var(--accent)}
+.flow strong{display:block;font-size:17px;margin-top:2px}
+.flow small{color:var(--muted);font-size:14px}
+/* sections */
+section{padding:56px 0 8px}
+section h2{font-size:clamp(26px,4vw,34px);margin:6px 0 10px}
+.lead{color:var(--muted);max-width:720px;font-size:18px}
+.strategy{margin:18px 0 22px;background:var(--accent-soft);border-left:5px solid var(--accent);border-radius:10px;padding:14px 18px;font-size:16px}
+.strategy b{color:var(--accent)}
+/* tools */
+.tools{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px;margin:8px 0 24px}
+.tool{display:flex;flex-direction:column;gap:6px;text-decoration:none;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px;transition:transform .15s,border-color .15s}
+.tool:hover,.tool:focus-visible{transform:translateY(-2px);border-color:var(--accent)}
+.tool .tag{align-self:flex-start;font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:3px 9px;border-radius:999px}
+.tool.ms .tag{background:var(--ms-soft);color:var(--ms)} .tool.gg .tag{background:var(--gg-soft);color:var(--gg)} .tool.ot .tag{background:var(--ot-soft);color:var(--ot)}
+.tool strong{font-size:18px}
+.tool span.d{color:var(--muted);font-size:15px}
+.tool span.go{margin-top:auto;font-weight:800;font-size:14px;color:var(--accent)}
+/* steps + prompts */
+ol.steps{counter-reset:s;list-style:none;display:grid;gap:10px;margin:10px 0 22px}
+ol.steps li{counter-increment:s;position:relative;padding:12px 16px 12px 56px;background:var(--surface);border:1px solid var(--line);border-radius:12px}
+ol.steps li:before{content:counter(s);position:absolute;left:14px;top:11px;width:28px;height:28px;border-radius:50%;background:var(--ink);color:var(--bg);font-weight:800;font-size:15px;display:flex;align-items:center;justify-content:center}
+h3.sub{font-size:20px;margin:6px 0 10px}
+.prompt{position:relative;background:var(--code);border:1px solid var(--line);border-radius:12px;padding:16px 18px 16px 18px;margin:10px 0;font-size:16px}
+.prompt p{padding-right:96px}
+.prompt .lbl{display:block;font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.copy{position:absolute;top:12px;right:12px;font:inherit;font-size:14px;font-weight:800;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:6px 14px;cursor:pointer}
+.copy:hover,.copy:focus-visible{border-color:var(--accent);color:var(--accent)}
+.copy.ok{background:var(--accent);border-color:var(--accent);color:#fff}
+.extra{font-size:15px;color:var(--muted);margin:12px 0 0}
+.extra b{color:var(--ink)}
+/* offer */
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:22px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.panel h3{font-size:20px;margin-bottom:10px}
+.panel ul{padding-left:20px;display:grid;gap:6px;color:var(--muted)}
+.panel ul b{color:var(--ink)}
+.note{margin-top:14px;font-size:14px;color:var(--muted)}
+.btn{display:inline-block;margin-top:14px;text-decoration:none;font-weight:800;background:var(--ink);color:var(--bg);padding:10px 18px;border-radius:999px}
+table{width:100%;border-collapse:collapse;background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden;font-size:16px}
+th,td{text-align:left;padding:12px 16px;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--sand);font-size:14px;letter-spacing:.04em;text-transform:uppercase}
+tr:last-child td{border-bottom:none}
+.rules{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.rules div{background:var(--sand);border-radius:14px;padding:18px}
+.rules b{display:block;font-family:'Domine',serif;font-size:19px;margin-bottom:4px}
+.rules span{color:var(--muted);font-size:15px}
+footer{margin-top:64px;border-top:1px solid var(--line);padding:28px 0 40px;color:var(--muted);font-size:14px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
+.theme{font:inherit;font-size:14px;font-weight:700;border:1px solid var(--line);background:transparent;color:var(--muted);border-radius:999px;padding:6px 12px;cursor:pointer;margin-left:auto;flex:none}
+@media (max-width:760px){
+  body{font-size:16px}
+  .flow{grid-template-columns:1fr 1fr}
+  .two,.rules{grid-template-columns:1fr}
+  .prompt p{padding-right:0;padding-top:34px}
+  th,td{padding:10px 12px}
+}
+@media print{nav.top,.copy,.theme{display:none} header.hero{background:none;color:var(--ink)} header.hero p,.chips span{color:var(--ink)}}
+
+
+.goal{margin:12px 0 0;font-size:17px;max-width:760px}
+.goal b{color:var(--accent)}
+.level{border:1px solid var(--line);border-radius:16px;padding:18px 18px 8px;margin:0 0 16px;background:var(--surface)}
+.level.l1{border-left:6px solid var(--ms)}
+.level.l2{border-left:6px solid var(--accent)}
+.level.l3{border-left:6px solid var(--ink)}
+.lh{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:6px}
+.lname{font-family:'Domine',serif;font-weight:700;font-size:19px}
+.lwho{font-size:13px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.done{margin-left:auto;font-size:14px;font-weight:700;color:var(--muted);display:flex;align-items:center;gap:6px;cursor:pointer}
+.done input{width:18px;height:18px;accent-color:var(--accent)}
+.level ol.steps li{background:var(--bg)}
+.mobile{font-size:15px;color:var(--muted);margin:4px 0 0;padding:12px 16px;border:1px dashed var(--line);border-radius:12px}
+.mobile b{color:var(--ink)}
+.start{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px}
+.start div{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px}
+.start b{display:block;font-family:'Domine',serif;font-size:24px;color:var(--accent)}
+.start strong{display:block;font-size:17px;margin:2px 0 4px}
+.start span{font-size:15px;color:var(--muted)}
+.start a{color:var(--accent);font-weight:800}
+.levels-key{display:flex;flex-wrap:wrap;gap:16px;margin-top:14px;font-size:15px;color:var(--muted)}
+.levels-key span:before{content:"";display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+.levels-key .k1:before{background:var(--ms)} .levels-key .k2:before{background:var(--accent)} .levels-key .k3:before{background:var(--ink)}
+.ethic{display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between;background:var(--hero);color:var(--hero-ink);border-radius:16px;padding:22px 24px}
+.ethic p{color:var(--hero-muted);max-width:620px}
+.ethic h3{font-size:22px;margin-bottom:4px}
+.ethic .btn{background:var(--orange);color:#1F2A44;margin-top:0}
+@media (max-width:760px){.start{grid-template-columns:1fr}.done{margin-left:0}}
+
+</style>
+</head>
+<body>
+
+<nav class="top" aria-label="Secciones">
+  <div class="wrap">
+    <a class="brand" href="#inicio">IA para estudiar</a>
+    <a href="#empezar">Antes de empezar</a>
+    <a href="#gestionar">1 · Gestionar</a><a href="#procesar">2 · Procesar</a><a href="#estudiar">3 · Estudiar</a><a href="#organizar">4 · Organizar</a>
+    <a href="#caja">Caja de herramientas</a>
+    <a href="#etica">Ética</a>
+    <a href="#ofertas">Accesos</a>
+    <button class="theme" id="theme" type="button" aria-label="Cambiar tema claro u oscuro">Claro / oscuro</button>
+  </div>
+</nav>
+
+<header class="hero" id="inicio">
+  <div class="wrap">
+    <div class="eyebrow">Banco de recursos · Taller práctico</div>
+    <h1>IA para estudiar,<br>organizarse y aprender</h1>
+    <p>Herramientas, retos y prompts del taller, listos para usar con tus propios apuntes. La IA no estudia por ti, pero te ayuda a llevar mejor el estudio.</p>
+    <div class="chips"><span>Universidad CEU Cardenal Herrera</span><span>27 de octubre de 2026</span><span>Gratis con tu cuenta de la universidad</span></div>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="flow" role="list"><a role="listitem" href="#gestionar"><b>1</b><strong>Gestionar</strong><small>Captura y ordena tus apuntes</small></a><a role="listitem" href="#procesar"><b>2</b><strong>Procesar</strong><small>Entiende y transforma</small></a><a role="listitem" href="#estudiar"><b>3</b><strong>Estudiar</strong><small>Practica y repasa</small></a><a role="listitem" href="#organizar"><b>4</b><strong>Organizar</strong><small>Planifica hasta el examen</small></a></div>
+
+  <section id="empezar">
+    <div class="eyebrow">Antes de empezar</div>
+    <h2>Tres cosas para no perder tiempo</h2>
+    <div class="start">
+      <div><b>1</b><strong>Entra en Copilot</strong><span>Con tu cuenta de la universidad en <a href="https://m365.cloud.microsoft/chat" target="_blank" rel="noopener">m365.cloud.microsoft/chat</a>.</span></div>
+      <div><b>2</b><strong>Ten a mano tus apuntes</strong><span>Un tema de una asignatura en PDF, diapositivas o fotos. Trabajarás con él toda la mañana.</span></div>
+      <div><b>3</b><strong>Opcional: Google</strong><span>Una cuenta personal de Google para usar Gemini y Gemini Notebook como alternativa.</span></div>
+    </div>
+    <h3 class="sub" style="margin-top:26px">Cada bloque tiene tres niveles</h3>
+    <p class="lead">Haz primero el básico. Si terminas antes, sigue con el extra y el reto pro: no hace falta esperar a nadie.</p>
+    <div class="levels-key"><span class="k1">Básico: para todos</span><span class="k2">Extra: si has terminado</span><span class="k3">Reto pro: para quien va sobrado</span></div>
+  </section>
+
+  <section id="gestionar">
+    <div class="eyebrow">Bloque 1 · 25 min</div>
+    <h2>Gestionar: del caos de apuntes a un cuaderno ordenado</h2>
+    <p class="goal"><b>Al terminar tendrás:</b> Tener los apuntes de un tema en texto limpio, ordenado y guardado en un cuaderno de la asignatura.</p>
+    <div class="strategy"><b>Estrategia:</b> un cuaderno por asignatura. Fotos, PDF, audios y enlaces van al mismo sitio desde el primer día, en texto que la IA pueda leer.</div>
+    <div class="tools"><a class="tool ms" href="https://m365.cloud.microsoft/chat" target="_blank" rel="noopener"><span class="tag">Microsoft 365</span><strong>Copilot</strong><span class="d">Con tu cuenta de la universidad.</span><span class="go">Abrir →</span></a><a class="tool ms" href="https://www.onenote.com" target="_blank" rel="noopener"><span class="tag">Microsoft 365</span><strong>OneNote</strong><span class="d">Tu cuaderno de asignatura, con una sección por tema.</span><span class="go">Abrir →</span></a><a class="tool gg" href="https://gemini.google.com" target="_blank" rel="noopener"><span class="tag">Google</span><strong>Gemini</strong><span class="d">Alternativa a Copilot; Gemini Live para hablar en voz alta.</span><span class="go">Abrir →</span></a></div>
+    <div class="level l1">
+      <div class="lh"><span class="lname">Básico</span><span class="lwho">Para todos</span><label class="done"><input type="checkbox" data-key="gestionar-l1"> Hecho</label></div>
+      <ol class="steps"><li>Abre Copilot con tu cuenta de la universidad.</li><li>Sube una foto o un PDF de los apuntes de un tema.</li><li>Pídele que los pase a texto limpio y ordenado con el prompt de abajo.</li><li>Pega el resultado en una sección nueva de OneNote para esa asignatura.</li></ol>
+      <div class="prompt"><span class="lbl">Prompt · Apuntes a texto</span><p>Transcribe estos apuntes a texto limpio. Ordénalos con títulos y subtítulos y marca con [?] lo que no se lea bien. No añadas información que no esté.</p><button class="copy" type="button">Copiar</button></div>
+    </div><div class="level l2">
+      <div class="lh"><span class="lname">Extra</span><span class="lwho">Si has terminado</span><label class="done"><input type="checkbox" data-key="gestionar-l2"> Hecho</label></div>
+      <ol class="steps"><li>Compara tus apuntes con el índice del tema de la guía docente y localiza lo que te falta.</li><li>Crea un glosario con los términos clave del tema y guárdalo en el mismo cuaderno.</li></ol>
+      <div class="prompt"><span class="lbl">Prompt · Detectar huecos</span><p>Este es el índice del tema según la guía docente: [pega el índice]. Compáralo con mis apuntes y dime qué apartados me faltan o están incompletos.</p><button class="copy" type="button">Copiar</button></div><div class="prompt"><span class="lbl">Prompt · Glosario</span><p>A partir de estos apuntes, crea un glosario con los 10 términos clave: definición en una frase y un ejemplo. No inventes nada que no esté en el texto.</p><button class="copy" type="button">Copiar</button></div>
+    </div><div class="level l3">
+      <div class="lh"><span class="lname">Reto pro</span><span class="lwho">Para quien va sobrado</span><label class="done"><input type="checkbox" data-key="gestionar-l3"> Hecho</label></div>
+      <ol class="steps"><li>Con Copilot en Outlook, resume los correos y avisos de una asignatura y saca una lista de tareas con fechas.</li></ol>
+      <div class="prompt"><span class="lbl">Prompt · Resumen de correos</span><p>Resume los correos de [asignatura] de las últimas dos semanas: qué tengo que entregar, cuándo y qué ha cambiado. Hazlo en una lista con fechas.</p><button class="copy" type="button">Copiar</button></div>
+    </div>
+    <p class="mobile"><b>Solo con el móvil:</b> App de Copilot o de Gemini: haz la foto a los apuntes y pide «pásalo a texto». Guárdalo en OneNote móvil.</p>
+  </section>
+  <section id="procesar">
+    <div class="eyebrow">Bloque 2 · 35 min</div>
+    <h2>Procesar: entender y transformar</h2>
+    <p class="goal"><b>Al terminar tendrás:</b> Convertir tus fuentes en una guía de estudio y en otro formato que te ayude a entender el tema.</p>
+    <div class="strategy"><b>Estrategia:</b> que la IA trabaje sobre tus fuentes, no sobre lo que «sabe» de Internet. Pide el mismo tema en formatos distintos: guía, esquema, audio.</div>
+    <div class="tools"><a class="tool ms" href="https://m365.cloud.microsoft/chat" target="_blank" rel="noopener"><span class="tag">Microsoft 365</span><strong>Copilot Notebooks</strong><span class="d">Pregunta a tus apuntes y crea guías de estudio.</span><span class="go">Abrir →</span></a><a class="tool gg" href="https://notebook.google.com" target="_blank" rel="noopener"><span class="tag">Google</span><strong>Gemini Notebook</strong><span class="d">Antes NotebookLM. Responde solo desde tus fuentes: mapa mental, audio, tests.</span><span class="go">Abrir →</span></a><a class="tool ot" href="https://www.napkin.ai" target="_blank" rel="noopener"><span class="tag">Complemento</span><strong>Napkin AI</strong><span class="d">Convierte un texto en esquema o diagrama.</span><span class="go">Abrir →</span></a></div>
+    <div class="level l1">
+      <div class="lh"><span class="lname">Básico</span><span class="lwho">Para todos</span><label class="done"><input type="checkbox" data-key="procesar-l1"> Hecho</label></div>
+      <ol class="steps"><li>Crea un cuaderno en Copilot Notebooks o en Gemini Notebook y sube 2–3 fuentes del tema (PDF, diapositivas, tus apuntes del bloque 1).</li><li>Pide una guía de estudio con el prompt de abajo.</li><li>Hazle dos preguntas sobre lo que no entiendas.</li><li>Pregúntale algo que no esté en tus fuentes. ¿Qué responde?</li></ol>
+      <div class="prompt"><span class="lbl">Prompt · Guía de estudio</span><p>Usa solo mis fuentes. Haz una guía de estudio con los conceptos clave, un ejemplo de cada uno y dónde aparece en el material.</p><button class="copy" type="button">Copiar</button></div>
+    </div><div class="level l2">
+      <div class="lh"><span class="lname">Extra</span><span class="lwho">Si has terminado</span><label class="done"><input type="checkbox" data-key="procesar-l2"> Hecho</label></div>
+      <ol class="steps"><li>Pega un apartado en Napkin AI y conviértelo en un esquema visual.</li><li>O genera en Gemini Notebook un resumen en audio para escucharlo de camino a clase.</li><li>Pide una tabla que compare dos conceptos que se confundan fácilmente.</li></ol>
+      <div class="prompt"><span class="lbl">Prompt · Comparar</span><p>Haz una tabla comparando [A] y [B] según mis apuntes: definición, características, ejemplos y errores típicos.</p><button class="copy" type="button">Copiar</button></div>
+    </div><div class="level l3">
+      <div class="lh"><span class="lname">Reto pro</span><span class="lwho">Para quien va sobrado</span><label class="done"><input type="checkbox" data-key="procesar-l3"> Hecho</label></div>
+      <ol class="steps"><li>Pide a la IA que busque contradicciones y lagunas entre tus fuentes.</li><li>Usa el modo tutor: que te explique un concepto difícil comprobando que lo entiendes.</li></ol>
+      <div class="prompt"><span class="lbl">Prompt · Contradicciones</span><p>Compara mis fuentes: ¿en qué coinciden, en qué se contradicen y qué deja cada una sin explicar? Indica de qué fuente sale cada cosa.</p><button class="copy" type="button">Copiar</button></div><div class="prompt"><span class="lbl">Prompt · Modo tutor</span><p>Explícame [concepto] paso a paso. Antes de seguir, hazme una pregunta para comprobar que lo he entendido.</p><button class="copy" type="button">Copiar</button></div>
+    </div>
+    <p class="mobile"><b>Solo con el móvil:</b> App de Gemini Notebook o de Copilot: sube el PDF desde el móvil o la nube. El resumen en audio está pensado para escucharlo en el móvil.</p>
+  </section>
+  <section id="estudiar">
+    <div class="eyebrow">Bloque 3 · 35 min</div>
+    <h2>Estudiar: practicar, no solo releer</h2>
+    <p class="goal"><b>Al terminar tendrás:</b> Practicar con preguntas sobre tu tema y llevarte tarjetas para repasar los próximos días.</p>
+    <div class="strategy"><b>Estrategia:</b> hazte preguntas y repasa en días distintos. La IA prepara la práctica; el esfuerzo de recordar es tuyo. Un test con tus fallos vale más que releer el resumen.</div>
+    <div class="tools"><a class="tool ms" href="https://m365.cloud.microsoft/chat" target="_blank" rel="noopener"><span class="tag">Microsoft 365</span><strong>Copilot · Study and Learn</strong><span class="d">Tests, tarjetas y actividades que te guían sin darte la respuesta.</span><span class="go">Abrir →</span></a><a class="tool gg" href="https://notebook.google.com" target="_blank" rel="noopener"><span class="tag">Google</span><strong>Gemini Notebook</strong><span class="d">Antes NotebookLM. Responde solo desde tus fuentes: mapa mental, audio, tests.</span><span class="go">Abrir →</span></a><a class="tool ot" href="https://quizlet.com" target="_blank" rel="noopener"><span class="tag">Complemento</span><strong>Quizlet</strong><span class="d">Tarjetas y juegos; la opción fácil en iPhone.</span><span class="go">Abrir →</span></a><a class="tool ot" href="https://apps.ankiweb.net" target="_blank" rel="noopener"><span class="tag">Complemento</span><strong>Anki</strong><span class="d">Repetición espaciada. Gratis en web, ordenador y Android.</span><span class="go">Abrir →</span></a></div>
+    <div class="level l1">
+      <div class="lh"><span class="lname">Básico</span><span class="lwho">Para todos</span><label class="done"><input type="checkbox" data-key="estudiar-l1"> Hecho</label></div>
+      <ol class="steps"><li>Pide un test de 10 preguntas sobre tu tema (Study and Learn en Copilot, o Gemini Notebook).</li><li>Hazlo sin mirar los apuntes.</li><li>Convierte tus fallos en tarjetas e impórtalas en Quizlet o Anki.</li></ol>
+      <div class="prompt"><span class="lbl">Prompt · Test tipo examen</span><p>Hazme un test de 10 preguntas tipo examen sobre mis apuntes. Una a una; cuando falle, explícame por qué.</p><button class="copy" type="button">Copiar</button></div><div class="prompt"><span class="lbl">Prompt · Tarjetas</span><p>Convierte mis fallos en 20 tarjetas en formato pregunta;respuesta, una por línea, sin numerar.</p><button class="copy" type="button">Copiar</button></div>
+    </div><div class="level l2">
+      <div class="lh"><span class="lname">Extra</span><span class="lwho">Si has terminado</span><label class="done"><input type="checkbox" data-key="estudiar-l2"> Hecho</label></div>
+      <ol class="steps"><li>Explica el tema en voz alta con Gemini Live (o dictando a Copilot) y pide que te corrija.</li></ol>
+      <div class="prompt"><span class="lbl">Prompt · Examen oral</span><p>Te voy a explicar [tema] como si fuera un examen oral. Escúchame y después dime qué he explicado bien, qué me he dejado y qué he dicho mal.</p><button class="copy" type="button">Copiar</button></div>
+    </div><div class="level l3">
+      <div class="lh"><span class="lname">Reto pro</span><span class="lwho">Para quien va sobrado</span><label class="done"><input type="checkbox" data-key="estudiar-l3"> Hecho</label></div>
+      <ol class="steps"><li>Pide preguntas de desarrollo como las de un examen final y que te ponga nota.</li><li>O haz un simulacro cronometrado.</li></ol>
+      <div class="prompt"><span class="lbl">Prompt · Profesor exigente</span><p>Actúa como el profesor de [asignatura]. Hazme 5 preguntas de desarrollo como las de un examen final y evalúa mis respuestas con una nota y qué me falta.</p><button class="copy" type="button">Copiar</button></div><div class="prompt"><span class="lbl">Prompt · Simulacro</span><p>Prepárame un simulacro de examen de 20 minutos sobre mis apuntes: 5 preguntas cortas y 1 de desarrollo. No me des las respuestas hasta que te diga «corrige».</p><button class="copy" type="button">Copiar</button></div>
+    </div>
+    <p class="mobile"><b>Solo con el móvil:</b> Test en la app de Copilot o de Gemini Notebook; Gemini Live para explicar en voz alta; Quizlet en lugar de Anki si usas iPhone.</p>
+  </section>
+  <section id="organizar">
+    <div class="eyebrow">Bloque 4 · 25 min</div>
+    <h2>Organizar: del calendario de exámenes a un plan realista</h2>
+    <p class="goal"><b>Al terminar tendrás:</b> Salir con un plan de estudio realista hasta los exámenes y las primeras sesiones ya en tu calendario.</p>
+    <div class="strategy"><b>Estrategia:</b> planifica hacia atrás desde la fecha de examen, con tus horas libres reales: bloques cortos, repasos repartidos y un día libre.</div>
+    <div class="tools"><a class="tool ms" href="https://m365.cloud.microsoft/chat" target="_blank" rel="noopener"><span class="tag">Microsoft 365</span><strong>Copilot</strong><span class="d">Con tu cuenta de la universidad.</span><span class="go">Abrir →</span></a><a class="tool ms" href="https://outlook.office.com" target="_blank" rel="noopener"><span class="tag">Microsoft 365</span><strong>Outlook + Copilot</strong><span class="d">Resume correos y mete el plan en tu calendario.</span><span class="go">Abrir →</span></a><a class="tool ms" href="https://to-do.office.com" target="_blank" rel="noopener"><span class="tag">Microsoft 365</span><strong>Microsoft To Do</strong><span class="d">Tareas por asignatura y fecha.</span><span class="go">Abrir →</span></a></div>
+    <div class="level l1">
+      <div class="lh"><span class="lname">Básico</span><span class="lwho">Para todos</span><label class="done"><input type="checkbox" data-key="organizar-l1"> Hecho</label></div>
+      <ol class="steps"><li>Apunta tus fechas de exámenes y entregas y tus horas libres de una semana normal.</li><li>Pide a Copilot un plan semanal con el prompt de abajo.</li><li>Pasa las tres primeras sesiones a Outlook o a To Do.</li></ol>
+      <div class="prompt"><span class="lbl">Prompt · Plan de estudio</span><p>Tengo estos exámenes y entregas: [lista con fechas]. Mis horas libres son: [horario]. Hazme un plan semanal realista hasta el [fecha], con repasos de cada tema y un día libre.</p><button class="copy" type="button">Copiar</button></div>
+    </div><div class="level l2">
+      <div class="lh"><span class="lname">Extra</span><span class="lwho">Si has terminado</span><label class="done"><input type="checkbox" data-key="organizar-l2"> Hecho</label></div>
+      <ol class="steps"><li>Pide a Copilot que divida el trabajo más grande que tengas en pasos pequeños, con fecha para cada uno, y pásalos a To Do.</li></ol>
+      <div class="prompt"><span class="lbl">Prompt · Trocear un trabajo</span><p>Divide este trabajo en pasos de 45 minutos como máximo, con una fecha límite para cada uno: [describe el trabajo y la fecha de entrega].</p><button class="copy" type="button">Copiar</button></div>
+    </div><div class="level l3">
+      <div class="lh"><span class="lname">Reto pro</span><span class="lwho">Para quien va sobrado</span><label class="done"><input type="checkbox" data-key="organizar-l3"> Hecho</label></div>
+      <ol class="steps"><li>Prepara tu prompt de «revisión del domingo» para reajustar el plan cada semana.</li></ol>
+      <div class="prompt"><span class="lbl">Prompt · Revisión del domingo</span><p>Este era mi plan de la semana: [plan]. Esto es lo que he hecho: [real]. Reajusta la semana que viene sin cargarme más de [X] horas al día.</p><button class="copy" type="button">Copiar</button></div>
+    </div>
+    <p class="mobile"><b>Solo con el móvil:</b> Apps de Outlook y To Do (o Google Calendar) para recibir el plan y los avisos.</p>
+  </section>
+
+  <section id="caja">
+    <div class="eyebrow">Para seguir</div>
+    <h2>Caja de herramientas</h2>
+    <p class="lead">Más opciones, gratuitas o con plan gratuito, para cuando domines las básicas.</p>
+    <div class="tools"><a class="tool ot" href="https://claude.ai" target="_blank" rel="noopener"><span class="tag">Complemento</span><strong>Claude</strong><span class="d">Explicaciones largas y revisión de tus textos. Un proyecto por asignatura.</span><span class="go">Abrir →</span></a><a class="tool ot" href="https://chatgpt.com" target="_blank" rel="noopener"><span class="tag">Complemento</span><strong>ChatGPT</strong><span class="d">Modo estudio: un tutor que pregunta en vez de responder.</span><span class="go">Abrir →</span></a><a class="tool gg" href="https://gemini.google.com" target="_blank" rel="noopener"><span class="tag">Google</span><strong>Gemini</strong><span class="d">Alternativa a Copilot; Gemini Live para hablar en voz alta.</span><span class="go">Abrir →</span></a><a class="tool gg" href="https://aistudio.google.com" target="_blank" rel="noopener"><span class="tag">Google</span><strong>Google AI Studio</strong><span class="d">Prueba modelos de Google y crea una mini app sin programar.</span><span class="go">Abrir →</span></a></div>
+    <div class="prompt"><span class="lbl">Prompt · Mini app en Google AI Studio</span><p>Crea una app web de tarjetas de estudio: pego una lista pregunta;respuesta, me las muestra de una en una, puedo marcar «la sé» o «repasar» y al final me enseña las que fallé.</p><button class="copy" type="button">Copiar</button></div>
+    <h3 class="sub" style="margin-top:28px">Tres reglas para usar la IA con cabeza</h3>
+    <div class="rules">
+      <div><b>Te ayuda, no estudia por ti</b><span>Úsala para preparar la práctica; el esfuerzo de recordar es tuyo.</span></div>
+      <div><b>Comprueba</b><span>Puede inventar datos y referencias: contrasta con tus apuntes y fuentes.</span></div>
+      <div><b>Normas de cada asignatura</b><span>Mira la guía docente antes de usarla en un trabajo evaluable.</span></div>
+    </div>
+  </section>
+
+  <section id="etica">
+    <div class="ethic">
+      <div><div class="eyebrow">Primera parte del seminario</div><h3>IA y ética: lecturas y fuentes</h3><p>Medio ambiente, opinión pública, algoritmos que clasifican personas, aprendizaje y los marcos de la UNESCO.</p></div>
+      <a class="btn" href="https://ignamaestro.github.io/ia-etica-lecturas/" target="_blank" rel="noopener">Ver las lecturas</a>
+    </div>
+  </section>
+
+  <section id="ofertas">
+    <div class="eyebrow">Accesos</div>
+    <h2>Tus accesos gratuitos</h2>
+    <div class="two">
+      <div class="panel">
+        <h3>Microsoft 365 Copilot</h3>
+        <ul>
+          <li>Entra con <b>tu cuenta de la universidad</b>, sin registros ni pagos.</li>
+          <li>Tus datos quedan protegidos dentro de la cuenta institucional: es la opción recomendada para subir material de clase.</li>
+          <li>Busca el agente <b>Study and Learn</b> y <b>Notebooks</b> en el menú lateral.</li>
+        </ul>
+        <a class="btn" href="https://m365.cloud.microsoft/chat" target="_blank" rel="noopener">Abrir Copilot</a>
+      </div>
+      <div class="panel">
+        <h3>Google AI Plus · 1 año gratis</h3>
+        <ul>
+          <li>Para universitarios <b>mayores de 18</b> en España. Se canjea <b>hasta el 31/12/2026</b>.</li>
+          <li>Usa tu <b>cuenta personal</b> de Google, no la de la universidad.</li>
+          <li>Verificas que eres estudiante y añades un método de pago (cargo 0 €).</li>
+          <li><b>Se renueva a 4,99 €/mes</b> si no cancelas antes de que acabe el año: pon un recordatorio.</li>
+        </ul>
+        <a class="btn" href="https://gemini.google/es/students/?hl=es" target="_blank" rel="noopener">Ver la oferta oficial</a>
+      </div>
+    </div>
+    <p class="note">Condiciones revisadas en octubre de 2026. Los planes gratuitos cambian: comprueba siempre la página oficial.</p>
+  </section>
+</div>
+
+<footer>
+  <div class="wrap">
+    <span>Seminario «IA para estudiar, organizarse y aprender» · Universidad CEU Cardenal Herrera · 27/10/2026</span>
+    <span>Ignacio Maestro</span>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('.copy').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    var text = btn.parentElement.querySelector('p').innerText.trim();
+    var done = function(){ btn.textContent='Copiado'; btn.classList.add('ok'); setTimeout(function(){ btn.textContent='Copiar'; btn.classList.remove('ok'); },1600); };
+    if (navigator.clipboard && navigator.clipboard.writeText) { navigator.clipboard.writeText(text).then(done, function(){ fallback(text); done(); }); }
+    else { fallback(text); done(); }
+  });
+});
+function fallback(t){ var ta=document.createElement('textarea'); ta.value=t; ta.style.position='fixed'; ta.style.opacity='0'; document.body.appendChild(ta); ta.select(); try{document.execCommand('copy');}catch(e){} ta.remove(); }
+document.querySelectorAll('.done input').forEach(function(cb){
+  var k='ia-estudiar-'+cb.dataset.key;
+  try{ cb.checked = localStorage.getItem(k)==='1'; }catch(e){}
+  cb.addEventListener('change',function(){ try{ localStorage.setItem(k, cb.checked?'1':'0'); }catch(e){} });
+});
+(function(){
+  var root=document.documentElement, key='ia-estudiar-tema';
+  try{ var s=localStorage.getItem(key); if(s) root.setAttribute('data-theme',s); }catch(e){}
+  document.getElementById('theme').addEventListener('click',function(){
+    var cur=root.getAttribute('data-theme') || (matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
+    var next=cur==='dark'?'light':'dark'; root.setAttribute('data-theme',next);
+    try{ localStorage.setItem(key,next); }catch(e){}
+  });
+})();
+</script>
+</body>
+</html>
