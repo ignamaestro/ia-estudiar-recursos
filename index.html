@@ -29,6 +29,13 @@
 html{scroll-behavior:smooth;scroll-padding-top:72px}
 body{font-family:'Nunito Sans',system-ui,-apple-system,'Segoe UI',sans-serif;background:var(--bg);color:var(--ink);line-height:1.55;font-size:17px}
 a{color:inherit}
+.demo{margin:18px 0 6px;border:1px solid var(--line);border-radius:14px;background:var(--surface);overflow:hidden}
+.demo summary{cursor:pointer;list-style:none;padding:14px 18px;font-weight:800;display:flex;flex-wrap:wrap;align-items:center;gap:4px 10px}
+.demo summary::-webkit-details-marker{display:none}
+.demo summary small{flex-basis:100%;font-weight:400;color:var(--muted);font-size:15px;padding-left:36px}
+.demo .play{display:inline-grid;place-items:center;width:26px;height:26px;border-radius:50%;background:var(--accent);color:var(--surface);font-size:12px}
+.demo[open] summary{border-bottom:1px solid var(--line)}
+.demo video{display:block;width:100%;height:auto;aspect-ratio:16/9;background:#000}
 h1,h2,h3{font-family:'Domine',Georgia,serif;line-height:1.2}
 .wrap{max-width:1040px;margin:0 auto;padding:0 20px}
 /* nav */
@@ -187,6 +194,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
     <h2>Gestionar: del PDF del profesor a un tema bajo control</h2>
     <p class="goal"><b>Al terminar tendrás:</b> un mapa del tema guardado en el cuaderno de la asignatura.</p>
     <div class="strategy"><b>Estrategia:</b> un cuaderno por asignatura. El PDF del profesor, las diapositivas y tus apuntes digitales van al mismo sitio desde el primer día, con un mapa de cada tema para saber dónde está cada cosa.</div>
+    <details class="demo"><summary><span class="play">▶</span> Ver la demo 1 · 1 min<small>Copilot hace el mapa del tema a partir del PDF del profesor</small></summary><video controls playsinline preload="metadata" src="demos/demo1-mapa-del-tema.mp4"></video></details>
     <div class="tools"><a class="tool ms" href="https://m365.cloud.microsoft/chat" target="_blank" rel="noopener"><span class="tag">Microsoft 365</span><strong>Copilot</strong><span class="d">Con tu cuenta de la universidad.</span><span class="go">Abrir →</span></a><a class="tool ms" href="https://www.onenote.com" target="_blank" rel="noopener"><span class="tag">Microsoft 365</span><strong>OneNote</strong><span class="d">Tu cuaderno de asignatura, con una sección por tema.</span><span class="go">Abrir →</span></a><a class="tool gg" href="https://gemini.google.com" target="_blank" rel="noopener"><span class="tag">Google</span><strong>Gemini</strong><span class="d">Alternativa a Copilot; Gemini Live para hablar en voz alta.</span><span class="go">Abrir →</span></a></div>
     <div class="level l1">
       <div class="lh"><span class="lname">Básico</span><span class="lwho">Para todos</span><label class="done"><input type="checkbox" data-key="gestionar-l1"> Hecho</label></div>
@@ -208,6 +216,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
     <h2>Procesar: entender y transformar</h2>
     <p class="goal"><b>Al terminar tendrás:</b> tus fuentes convertidas en una guía de estudio y en otro formato que te ayude a entender el tema.</p>
     <div class="strategy"><b>Estrategia:</b> que la IA trabaje sobre tus fuentes, no sobre lo que «sabe» de Internet. Pide el mismo tema en formatos distintos: guía, esquema, audio.</div>
+    <details class="demo"><summary><span class="play">▶</span> Ver la demo 2 · 1 min 20 s<small>Un cuaderno de Gemini Notebook con tus fuentes y una guía de estudio</small></summary><video controls playsinline preload="metadata" src="demos/demo2-cuaderno-fuentes.mp4"></video></details>
     <div class="tools"><a class="tool gg" href="https://notebook.google.com" target="_blank" rel="noopener"><span class="tag">Google · recomendado</span><strong>Gemini Notebook</strong><span class="d">Antes NotebookLM. Con tu cuenta personal de Google. Responde solo desde tus fuentes: guía, mapa mental, audio, tests.</span><span class="go">Abrir →</span></a><a class="tool ms" href="https://m365.cloud.microsoft/chat" target="_blank" rel="noopener"><span class="tag">Microsoft 365</span><strong>Copilot Notebooks</strong><span class="d">Alternativa si tu cuenta de la universidad lo permite (no siempre está activado).</span><span class="go">Abrir →</span></a><a class="tool ot" href="https://www.napkin.ai" target="_blank" rel="noopener"><span class="tag">Complemento</span><strong>Napkin AI</strong><span class="d">Convierte un texto en esquema o diagrama.</span><span class="go">Abrir →</span></a></div>
     <div class="level l1">
       <div class="lh"><span class="lname">Básico</span><span class="lwho">Para todos</span><label class="done"><input type="checkbox" data-key="procesar-l1"> Hecho</label></div>
@@ -229,6 +238,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
     <h2>Estudiar: practicar, no solo releer</h2>
     <p class="goal"><b>Al terminar tendrás:</b> un test hecho sobre tu tema y tarjetas para repasar los próximos días.</p>
     <div class="strategy"><b>Estrategia:</b> hazte preguntas y repasa en días distintos. La IA prepara la práctica; el esfuerzo de recordar es tuyo. Un test con tus fallos vale más que releer el resumen.</div>
+    <details class="demo"><summary><span class="play">▶</span> Ver la demo 3 · 1 min 30 s<small>Test en «Estudiar y aprender» y tarjetas con tus fallos en Quizlet</small></summary><video controls playsinline preload="metadata" src="demos/demo3-test-tarjetas.mp4"></video></details>
     <div class="tools"><a class="tool ms" href="https://m365.cloud.microsoft/chat" target="_blank" rel="noopener"><span class="tag">Microsoft 365</span><strong>Copilot · Study and Learn</strong><span class="d">Tests, tarjetas y actividades que te guían sin darte la respuesta.</span><span class="go">Abrir →</span></a><a class="tool gg" href="https://notebook.google.com" target="_blank" rel="noopener"><span class="tag">Google</span><strong>Gemini Notebook</strong><span class="d">Antes NotebookLM. Responde solo desde tus fuentes: mapa mental, audio, tests.</span><span class="go">Abrir →</span></a><a class="tool ot" href="https://quizlet.com" target="_blank" rel="noopener"><span class="tag">Complemento</span><strong>Quizlet</strong><span class="d">Tarjetas, tests y juegos para repasar. Plan gratuito y app para móvil.</span><span class="go">Abrir →</span></a></div>
     <div class="level l1">
       <div class="lh"><span class="lname">Básico</span><span class="lwho">Para todos</span><label class="done"><input type="checkbox" data-key="estudiar-l1"> Hecho</label></div>
@@ -250,6 +260,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
     <h2>Organizar: del calendario de exámenes a un plan realista</h2>
     <p class="goal"><b>Al terminar tendrás:</b> un plan de estudio realista hasta los exámenes y las primeras sesiones ya en tu calendario.</p>
     <div class="strategy"><b>Estrategia:</b> planifica hacia atrás desde la fecha de examen, con tus horas libres reales: bloques cortos, repasos repartidos y un día libre.</div>
+    <details class="demo"><summary><span class="play">▶</span> Ver la demo 4 · 1 min<small>Plan de estudio con Copilot y las primeras sesiones en Outlook</small></summary><video controls playsinline preload="metadata" src="demos/demo4-plan-estudio.mp4"></video></details>
     <div class="tools"><a class="tool ms" href="https://m365.cloud.microsoft/chat" target="_blank" rel="noopener"><span class="tag">Microsoft 365</span><strong>Copilot</strong><span class="d">Con tu cuenta de la universidad.</span><span class="go">Abrir →</span></a><a class="tool ms" href="https://outlook.office.com" target="_blank" rel="noopener"><span class="tag">Microsoft 365</span><strong>Outlook + Copilot</strong><span class="d">Resume correos y mete el plan en tu calendario.</span><span class="go">Abrir →</span></a><a class="tool ms" href="https://to-do.office.com" target="_blank" rel="noopener"><span class="tag">Microsoft 365</span><strong>Microsoft To Do</strong><span class="d">Tareas por asignatura y fecha.</span><span class="go">Abrir →</span></a></div>
     <div class="level l1">
       <div class="lh"><span class="lname">Básico</span><span class="lwho">Para todos</span><label class="done"><input type="checkbox" data-key="organizar-l1"> Hecho</label></div>
@@ -319,7 +330,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
 <footer>
   <div class="wrap">
     <span>Seminario «IA para estudiar, organizarse y aprender» · Universidad CEU Cardenal Herrera · 27/10/2026</span>
-    <span>Ignacio Maestro</span>
+    <span>Ignacio Maestro · Música de las demos: «Gameplay», de Chillpeach</span>
   </div>
 </footer>
 
