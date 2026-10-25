@@ -124,7 +124,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
 .level ol.steps li{background:var(--bg)}
 .mobile{font-size:15px;color:var(--muted);margin:4px 0 0;padding:12px 16px;border:1px dashed var(--line);border-radius:12px}
 .mobile b{color:var(--ink)}
-.start{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px}
+.start{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:16px}
 .start div{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px}
 .start b{display:block;font-family:'Domine',serif;font-size:24px;color:var(--accent)}
 .start strong{display:block;font-size:17px;margin:2px 0 4px}
@@ -137,6 +137,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
 .ethic p{color:var(--hero-muted);max-width:620px}
 .ethic h3{font-size:22px;margin-bottom:4px}
 .ethic .btn{background:var(--orange);color:#1F2A44;margin-top:0}
+@media (max-width:1000px){.start{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:760px){.start{grid-template-columns:1fr}.done{margin-left:0}}
 
 </style>
@@ -169,11 +170,12 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
 
   <section id="empezar">
     <div class="eyebrow">Antes de empezar</div>
-    <h2>Tres cosas para no perder tiempo</h2>
+    <h2>Cuatro cosas para no perder tiempo</h2>
     <div class="start">
       <div><b>1</b><strong>Entra en Copilot</strong><span>Con tu cuenta de la universidad en <a href="https://m365.cloud.microsoft/chat" target="_blank" rel="noopener">m365.cloud.microsoft/chat</a>.</span></div>
       <div><b>2</b><strong>Ten a mano tus apuntes</strong><span>Un tema de una asignatura en PDF, diapositivas o fotos. Trabajarás con él toda la mañana.</span></div>
       <div><b>3</b><strong>Opcional: Google</strong><span>Una cuenta personal de Google para usar Gemini y Gemini Notebook como alternativa.</span></div>
+      <div><b>4</b><strong>Deja tu duda en el muro</strong><span>¿Qué te gustaría resolver hoy? Escríbelo en el <a href="https://forms.cloud.microsoft/e/XF4CV9bA7j" target="_blank" rel="noopener">muro de dudas</a>. Al terminar, vuelve a entrar y marca «Al terminar».</span></div>
     </div>
     <h3 class="sub" style="margin-top:26px">Cada bloque tiene tres niveles</h3>
     <p class="lead">Haz primero el básico. Si terminas antes, sigue con el extra y el reto pro: no hace falta esperar a nadie.</p>
@@ -183,7 +185,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
   <section id="gestionar">
     <div class="eyebrow">Bloque 1 · 25 min</div>
     <h2>Gestionar: del caos de apuntes a un cuaderno ordenado</h2>
-    <p class="goal"><b>Al terminar tendrás:</b> Tener los apuntes de un tema en texto limpio, ordenado y guardado en un cuaderno de la asignatura.</p>
+    <p class="goal"><b>Al terminar tendrás:</b> los apuntes de un tema en texto limpio, ordenado y guardado en un cuaderno de la asignatura.</p>
     <div class="strategy"><b>Estrategia:</b> un cuaderno por asignatura. Fotos, PDF, audios y enlaces van al mismo sitio desde el primer día, en texto que la IA pueda leer.</div>
     <div class="tools"><a class="tool ms" href="https://m365.cloud.microsoft/chat" target="_blank" rel="noopener"><span class="tag">Microsoft 365</span><strong>Copilot</strong><span class="d">Con tu cuenta de la universidad.</span><span class="go">Abrir →</span></a><a class="tool ms" href="https://www.onenote.com" target="_blank" rel="noopener"><span class="tag">Microsoft 365</span><strong>OneNote</strong><span class="d">Tu cuaderno de asignatura, con una sección por tema.</span><span class="go">Abrir →</span></a><a class="tool gg" href="https://gemini.google.com" target="_blank" rel="noopener"><span class="tag">Google</span><strong>Gemini</strong><span class="d">Alternativa a Copilot; Gemini Live para hablar en voz alta.</span><span class="go">Abrir →</span></a></div>
     <div class="level l1">
@@ -204,7 +206,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
   <section id="procesar">
     <div class="eyebrow">Bloque 2 · 35 min</div>
     <h2>Procesar: entender y transformar</h2>
-    <p class="goal"><b>Al terminar tendrás:</b> Convertir tus fuentes en una guía de estudio y en otro formato que te ayude a entender el tema.</p>
+    <p class="goal"><b>Al terminar tendrás:</b> tus fuentes convertidas en una guía de estudio y en otro formato que te ayude a entender el tema.</p>
     <div class="strategy"><b>Estrategia:</b> que la IA trabaje sobre tus fuentes, no sobre lo que «sabe» de Internet. Pide el mismo tema en formatos distintos: guía, esquema, audio.</div>
     <div class="tools"><a class="tool ms" href="https://m365.cloud.microsoft/chat" target="_blank" rel="noopener"><span class="tag">Microsoft 365</span><strong>Copilot Notebooks</strong><span class="d">Pregunta a tus apuntes y crea guías de estudio.</span><span class="go">Abrir →</span></a><a class="tool gg" href="https://notebook.google.com" target="_blank" rel="noopener"><span class="tag">Google</span><strong>Gemini Notebook</strong><span class="d">Antes NotebookLM. Responde solo desde tus fuentes: mapa mental, audio, tests.</span><span class="go">Abrir →</span></a><a class="tool ot" href="https://www.napkin.ai" target="_blank" rel="noopener"><span class="tag">Complemento</span><strong>Napkin AI</strong><span class="d">Convierte un texto en esquema o diagrama.</span><span class="go">Abrir →</span></a></div>
     <div class="level l1">
@@ -225,7 +227,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
   <section id="estudiar">
     <div class="eyebrow">Bloque 3 · 35 min</div>
     <h2>Estudiar: practicar, no solo releer</h2>
-    <p class="goal"><b>Al terminar tendrás:</b> Practicar con preguntas sobre tu tema y llevarte tarjetas para repasar los próximos días.</p>
+    <p class="goal"><b>Al terminar tendrás:</b> un test hecho sobre tu tema y tarjetas para repasar los próximos días.</p>
     <div class="strategy"><b>Estrategia:</b> hazte preguntas y repasa en días distintos. La IA prepara la práctica; el esfuerzo de recordar es tuyo. Un test con tus fallos vale más que releer el resumen.</div>
     <div class="tools"><a class="tool ms" href="https://m365.cloud.microsoft/chat" target="_blank" rel="noopener"><span class="tag">Microsoft 365</span><strong>Copilot · Study and Learn</strong><span class="d">Tests, tarjetas y actividades que te guían sin darte la respuesta.</span><span class="go">Abrir →</span></a><a class="tool gg" href="https://notebook.google.com" target="_blank" rel="noopener"><span class="tag">Google</span><strong>Gemini Notebook</strong><span class="d">Antes NotebookLM. Responde solo desde tus fuentes: mapa mental, audio, tests.</span><span class="go">Abrir →</span></a><a class="tool ot" href="https://quizlet.com" target="_blank" rel="noopener"><span class="tag">Complemento</span><strong>Quizlet</strong><span class="d">Tarjetas y juegos; la opción fácil en iPhone.</span><span class="go">Abrir →</span></a><a class="tool ot" href="https://apps.ankiweb.net" target="_blank" rel="noopener"><span class="tag">Complemento</span><strong>Anki</strong><span class="d">Repetición espaciada. Gratis en web, ordenador y Android.</span><span class="go">Abrir →</span></a></div>
     <div class="level l1">
@@ -246,7 +248,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
   <section id="organizar">
     <div class="eyebrow">Bloque 4 · 25 min</div>
     <h2>Organizar: del calendario de exámenes a un plan realista</h2>
-    <p class="goal"><b>Al terminar tendrás:</b> Salir con un plan de estudio realista hasta los exámenes y las primeras sesiones ya en tu calendario.</p>
+    <p class="goal"><b>Al terminar tendrás:</b> un plan de estudio realista hasta los exámenes y las primeras sesiones ya en tu calendario.</p>
     <div class="strategy"><b>Estrategia:</b> planifica hacia atrás desde la fecha de examen, con tus horas libres reales: bloques cortos, repasos repartidos y un día libre.</div>
     <div class="tools"><a class="tool ms" href="https://m365.cloud.microsoft/chat" target="_blank" rel="noopener"><span class="tag">Microsoft 365</span><strong>Copilot</strong><span class="d">Con tu cuenta de la universidad.</span><span class="go">Abrir →</span></a><a class="tool ms" href="https://outlook.office.com" target="_blank" rel="noopener"><span class="tag">Microsoft 365</span><strong>Outlook + Copilot</strong><span class="d">Resume correos y mete el plan en tu calendario.</span><span class="go">Abrir →</span></a><a class="tool ms" href="https://to-do.office.com" target="_blank" rel="noopener"><span class="tag">Microsoft 365</span><strong>Microsoft To Do</strong><span class="d">Tareas por asignatura y fecha.</span><span class="go">Abrir →</span></a></div>
     <div class="level l1">
